@@ -807,7 +807,7 @@ REAL, DIMENSION( ims:ime, kms:kme, jms:jme ),                        &
 
    INTEGER :: i,j,k,its,ite,jts,jte,ij,sz,n,i_mid,j_mid
    LOGICAL :: channel
-   LOGICAL :: max_precip_diag
+   LOGICAL :: max_precip_diag = .false.
    LOGICAL :: nssl_progn = .false.
    REAL    :: z0, z1, z2, w1, w2
 
@@ -3130,7 +3130,7 @@ REAL, DIMENSION( ims:ime, kms:kme, jms:jme ),                        &
              END IF
              call calc_prate_max(itimestep,xtime,i_mid,j_mid,its,ims,ite,ime,jts,jms,jte,jme,kts,kms,kte,kme,rainncv,rainnc,dt, &
                                  max_prate,max_prate_1min,max_prate_5min,max_prate_10min,refl_10cm,max_compref, &
-                                 n_precip_diag_points,precip_diag_x,precip_diag_y,ids,ide,jds,jde,mytask)
+                                 n_precip_diag_points,precip_diag_x,precip_diag_y,ids,ide,jds,jde,max_precip_diag)
 
       END IF
 
@@ -3296,10 +3296,10 @@ REAL, DIMENSION( ims:ime, kms:kme, jms:jme ),                        &
 
    subroutine calc_prate_max(timestep,sim_min,cent_x,cent_y,its,ims,ite,ime,jts,jms,jte,jme,kts,kms,kte,kme,rainncv,rainnc,time_step, &
                              max_prate,max_prate_1min,max_prate_5min,max_prate_10min,reflectivity_3D,max_compref, &
-                             n_diag_pt,diag_x,diag_y,ids,ide,jds,jde,mytask)
+                             n_diag_pt,diag_x,diag_y,ids,ide,jds,jde,max_precip_diag)
 
       ! Subroutine inputs
-      INTEGER, INTENT(IN) :: its, ims, ite, ime, jts, jms, jte, jme, kts, kms, kte, kme, ids, ide, jds, jde, cent_x, cent_y, timestep, n_diag_pt, mytask
+      INTEGER, INTENT(IN) :: its, ims, ite, ime, jts, jms, jte, jme, kts, kms, kte, kme, ids, ide, jds, jde, cent_x, cent_y, timestep, n_diag_pt
       INTEGER, DIMENSION(n_diag_pt), INTENT(IN) :: diag_x,diag_y
       REAL, INTENT(IN) :: time_step
       REAL, DIMENSION(ims:ime,jms:jme), INTENT(INOUT) :: max_prate, &
@@ -3309,6 +3309,7 @@ REAL, DIMENSION( ims:ime, kms:kme, jms:jme ),                        &
                                                        max_compref
       REAL, DIMENSION(ims:ime,jms:jme), INTENT(IN) :: rainncv, rainnc
       REAL, DIMENSION(ims:ime,kms:kme,jms:jme), INTENT(IN) :: reflectivity_3D
+      LOGICAL, INTENT(IN) :: max_precip_diag
 
       REAL, DIMENSION(:,:,:), ALLOCATABLE, SAVE :: rolling_precip
 
