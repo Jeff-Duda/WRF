@@ -2103,7 +2103,7 @@
 !-----------------------------------------------------------------------
 
       IF ( ( model_config_rec%nwp_diagnostics .NE. 0 ) .AND. &
-             model_config_rec%history_interval(1) .EQ. 0 .AND &
+             model_config_rec%history_interval(1) .EQ. 0 .AND. &
              model_config_rec%history_interval_d(1) .EQ. 0 .AND. &
              model_config_rec%history_interval_h(1) .EQ. 0 .AND. &
              model_config_rec%history_interval_m(1) .EQ. 0 .AND. &

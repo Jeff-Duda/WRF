@@ -553,7 +553,7 @@ IF (grid%sppt_on==1) then
       INTEGER , INTENT(IN)                      :: ids, ide, jds, jde, kds, kde,   &
                                                    ims, ime, jms, jme, kms, kme,   &
                                                    its, ite, jts, jte, kts, kte
-      INTEGER                                   :: IER,IK,IL,I,J,itime_step,skebs_vertstruc, &
+      INTEGER                                   :: IER,IK,IL,I,J,skebs_vertstruc, &
                                                    KMINFORCT,LMINFORCT,KMAXFORCT,LMAXFORCT,KMAXFORCTH,LMAXFORCTH, &
                                                    KMAX,LMAX,LENSAV,ILEV
       REAL                                      :: DX,DY,RY,RX,ALPH,RHOKLMAX,ZREF,RHOKL,EPS

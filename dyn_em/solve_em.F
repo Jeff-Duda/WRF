@@ -3970,11 +3970,6 @@ BENCH_START(micro_driver_tim)
                  ! Optional
       &        , RAINNC=grid%rainnc, RAINNCV=grid%rainncv                 &
       &        , SNOWNC=grid%snownc, SNOWNCV=grid%snowncv                 &
-      &        , HISTORY_INTERVAL=config_flags%history_interval           &
-      &        , HISTORY_INTERVAL_M=config_flags%history_interval_m       &
-      &        , HISTORY_INTERVAL_S=config_flags%history_interval_s       &
-      &        , ADAPTIVE_TS=config_flags%use_adaptive_time_step          &
-      &        , MAX_TIME_STEP=grid%max_time_step                         &
       &        , GRAUPELNC=grid%graupelnc, GRAUPELNCV=grid%graupelncv     & ! for milbrandt2mom
       &        , HAILNC=grid%hailnc, HAILNCV=grid%hailncv                 &
       &        , HAIL_MAXK1=grid%hail_maxk1,HAIL_MAX2D=grid%hail_max2d    &
