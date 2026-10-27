@@ -3974,6 +3974,9 @@ BENCH_START(micro_driver_tim)
       &        , MAX_PRATE_5MIN=grid%max_prate_5min                       &
       &        , MAX_PRATE_10MIN=grid%max_prate_10min                     &
       &        , MAX_COMPREF=grid%max_compref                             &
+      &        , HISTORY_INTERVAL=config_flags%history_interval           &
+      &        , HISTORY_INTERVAL_M=config_flags%history_interval_m       &
+      &        , HISTORY_INTERVAL_S=config_flags%history_interval_s       &
       &        , ADAPTIVE_TS=config_flags%use_adaptive_time_step          &
       &        , MAX_TIME_STEP=grid%max_time_step                         &
       &        , SNOWNC=grid%snownc, SNOWNCV=grid%snowncv                 &
