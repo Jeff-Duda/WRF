@@ -212,8 +212,8 @@ CONTAINS
    CHARACTER*256     :: outstring
    CHARACTER*6       :: grid_str
 
+   REAL, INTENT(IN) :: history_interval ! units of [s]
    INTEGER, INTENT(IN) ::                                        &
-                                     history_interval, & ! units of sec
                                      itimestep
 
    INTEGER :: idump
@@ -227,7 +227,7 @@ CONTAINS
 !  !$OMP PRIVATE ( ij )
    DO ij = 1 , num_tiles
 
-      IF (mod(curr_secs2, FLOAT(history_interval)) == 0.) THEN
+      IF (mod(curr_secs2, history_interval) == 0.) THEN
          WRITE(outstring,*) 'Reseting accumulation to 0'
          CALL wrf_debug ( 10, TRIM(outstring) )
          DO j=j_start(ij),j_end(ij)

@@ -152,8 +152,8 @@ CONTAINS
    CHARACTER*256     :: outstring
    CHARACTER*6       :: grid_str
 
+   REAL, INTENT(IN) :: history_interval ! units of [s]
    INTEGER, INTENT(IN) ::                                        &
-                                     history_interval, & ! units of sec
                                      itimestep
 
    REAL, DIMENSION( kms:kme ), INTENT(IN) ::                     &
@@ -219,6 +219,7 @@ CONTAINS
 !-----------------------------------------------------------------
 
     idump = history_interval / dt
+    print *, history_interval, dt, idump
 
 ! IF ( MOD(itimestep, idump) .eq. 0 ) THEN
 !    WRITE(outstring,*) 'Computing PH0 for this domain with curr_secs2 = ', curr_secs2
